@@ -52,7 +52,7 @@ docker-compose exec web python manage.py createsuperuser
 docker pull ferumv/api_yamdb:v1.01.2023
 ```
 ### Использованные технологии
-ля разработкиw Django-приложений YaMDb и API YaMDb использовались:
+Для разработки Django-приложений YaMDb и API YaMDb использовались:
 - Python 3.7.9
 - Django 2.2.16
 - Djangorestframework 3.12.4
