@@ -24,8 +24,8 @@ DB_HOST=db # название сервиса (контейнера)
 DB_PORT=5432 # порт для подключения к БД 
 ```
 ### Описание команд для запуска приложения в контейнерах
-Клонировать репозиторий и перейти в него в командной строке 
-Из директории `infra` Собрать и запустить контейнеры:
+Клонировать репозиторий и перейти в него в командной строке.  
+Из директории `infra` cобрать и запустить контейнеры:
 ```sh
 docker-compose up -d --build 
 ```
@@ -37,15 +37,14 @@ docker-compose exec web python manage.py collectstatic --no-input
 ### Описание команды для заполнения базы данными
 Для заполнения базы данных тестовыми данными, находясь в директории `infra`, выполнить команду:
 ```sh
-docker-compose exec web python manage.py createsuperuser
+docker-compose exec web python manage.py loaddata fixtures.json
 ```
-Приложение будет доступно по адресу http://localhost/
+Приложение будет доступно по адресу http://localhost/.  
 Создать суперпользователя:
 ```sh
 docker-compose exec web python manage.py createsuperuser
 ```
-Используя учетную запись суперпользователя зайти в админ-панель http://localhost/admin
-
+Используя учетную запись суперпользователя зайти в админ-панель http://localhost/admin.  
 По адресу http://localhost/redoc/ находится подробная документация с описаниями доступных эндпоинтов.
 
 Образ `api_yamdb` проекта доступен в репозитории DockerHub
@@ -53,15 +52,18 @@ docker-compose exec web python manage.py createsuperuser
 docker pull ferumv/api_yamdb:v1.01.2023
 ```
 ### Использованные технологии
-Для разработкиw Django-приложений YaMDb и API YaMDb использоаплись:
+ля разработкиw Django-приложений YaMDb и API YaMDb использовались:
 - Python 3.7.9
 - Django 2.2.16
 - Djangorestframework 3.12.4
 - Djangorestframework-simplejwt 4.7.2
-- Djangj-filter 2.4.0
-Для взаимодействия Django-приложений и web-сервера Nginx использовлся WSGI-сервер Gunicorn:
-- Gunicorn 20.0.4
+- Djangj-filter 2.4.0  
+
+Для взаимодействия Django-приложений и web-сервера Nginx использовался WSGI-сервер Gunicorn:
+- Gunicorn 20.0.4  
+
 Драйвер для работы с PostgreSQL:
 - Psycopg2-binary 2.8.6
+
 ### Автор
 Мария Феруленкова
